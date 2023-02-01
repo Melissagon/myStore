@@ -28,9 +28,9 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  Tag.update({
+  Tag.update(req.body, {
     where: { id: req.params.id }
-  }, req.body)
+  })
   .then(dbCategory => res.json(dbCategory))
   .catch(err => res.json(err))
 });
